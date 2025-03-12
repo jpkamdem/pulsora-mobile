@@ -81,15 +81,15 @@ export default function Navbar() {
 
 const styles = StyleSheet.create({
   navbar: {
-    height: 40,
+    height: 60,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
   },
   image: {
-    width: 35,
-    height: 35,
+    width: 40,
+    height: 40,
   },
   burgerIcon: {
     width: 30,
