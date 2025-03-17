@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Article 1",
+    "content" : "Contenu de mon article 1"
+  },
+  {
+    "id": 2,
+    "title": "Article 2",
+    "content" : "Contenu de mon article 2"
+  },
+  {
+    "id": 3,
+    "title": "Article 3",
+    "content" : "Contenu de mon article 3"
+  },
+  {
+    "id": 1,
+    "title": "Article 4",
+    "content" : "Contenu de mon article 4"
+  }
+]
