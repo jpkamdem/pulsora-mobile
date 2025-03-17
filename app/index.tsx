@@ -8,15 +8,18 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Navbar from "@/components/Navbar";
+import { useRouter } from "expo-router";
 
 const Separator = () => <View style={styles.separator} />;
 
 export default function Index() {
   const arrowImg = "../assets/images/arrow.png";
 
+  const router = useRouter();
+
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{flexGrow: 1}}>
+      <ScrollView style={{ flexGrow: 1 }}>
         <Navbar />
         <View style={{ backgroundColor: "gray" }}>
           <Text style={{ color: "white", textAlign: "center" }}>
@@ -65,7 +68,9 @@ export default function Index() {
           >
             Article
           </Text>
-          <Image source={require(arrowImg)} style={styles.arrow} />
+          <Pressable onPress={() => router.push("/articles")}>
+            <Image source={require(arrowImg)} style={styles.arrow} />
+          </Pressable>
         </View>
         <Separator />
         <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
@@ -80,7 +85,9 @@ export default function Index() {
           >
             Saison
           </Text>
-          <Image source={require(arrowImg)} style={styles.arrow} />
+          <Pressable onPress={() => router.push("/saison")}>
+            <Image source={require(arrowImg)} style={styles.arrow} />
+          </Pressable>
         </View>
         <Separator />
         <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
@@ -93,9 +100,11 @@ export default function Index() {
               marginTop: 8,
             }}
           >
-            équipes
+            Équipes
           </Text>
-          <Image source={require(arrowImg)} style={styles.arrow} />
+          <Pressable onPress={() => router.push("/equipes")}>
+            <Image source={require(arrowImg)} style={styles.arrow} />
+          </Pressable>
         </View>
       </ScrollView>
     </SafeAreaView>
