@@ -1,5 +1,6 @@
 import {
   Image,
+  ImageBackground,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -14,19 +15,17 @@ const Separator = () => <View style={styles.separator} />;
 
 export default function Index() {
   const arrowImg = "../assets/images/arrow.png";
+  const mainPlayerImg = "../assets/images/main-player.png";
+  const articleImg = "../assets/images/articles.jpg";
 
   const router = useRouter();
 
   return (
     <ScrollView style={{ flexGrow: 1 }}>
       <SafeAreaProvider>
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView>
           <Navbar />
-          <View style={{ backgroundColor: "gray" }}>
-            <Text style={{ color: "white", textAlign: "center" }}>
-              Image joueur de foot
-            </Text>
-          </View>
+          <Image source={require(mainPlayerImg)} style={styles.mainPlayer} />
           <Separator />
           <View style={styles.titleContainer}>
             <Text style={styles.mainTitle}>Pulsora</Text>
@@ -61,56 +60,84 @@ export default function Index() {
             iure distinctio. Magni, harum!
           </Text>
           <Separator />
-          <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
-            <Text
-              style={{
-                textAlign: "center",
-                fontSize: 32,
-                fontWeight: "800",
-                color: "gray",
-                marginTop: 8,
-              }}
-            >
-              Article
-            </Text>
+          <View
+            style={{
+              position: "relative",
+              borderWidth: 1,
+              backgroundColor: "lightgray",
+            }}
+          >
             <Pressable onPress={() => router.push("/articles")}>
-              <Image source={require(arrowImg)} style={styles.arrow} />
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: 48,
+                  padding: 8,
+                  fontWeight: "800",
+                  marginVertical: 6,
+                }}
+              >
+                ARTICLES
+              </Text>
+              <ImageBackground
+                source={require(articleImg)}
+                style={{ height: 160 }}
+              ></ImageBackground>
             </Pressable>
           </View>
           <Separator />
-          <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
-            <Text
-              style={{
-                textAlign: "center",
-                fontSize: 32,
-                fontWeight: "800",
-                color: "gray",
-                marginTop: 8,
-              }}
-            >
-              Saison
-            </Text>
-            <Pressable onPress={() => router.push("/saison")}>
-              <Image source={require(arrowImg)} style={styles.arrow} />
-            </Pressable>
-          </View>
-          <Separator />
-          <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
-            <Text
-              style={{
-                textAlign: "center",
-                fontSize: 32,
-                fontWeight: "800",
-                color: "gray",
-                marginTop: 8,
-              }}
-            >
-              Équipes
-            </Text>
+          <View
+            style={{
+              position: "relative",
+              borderWidth: 1,
+              backgroundColor: "lightgray",
+            }}
+          >
             <Pressable onPress={() => router.push("/equipes")}>
-              <Image source={require(arrowImg)} style={styles.arrow} />
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: 48,
+                  padding: 8,
+                  fontWeight: "800",
+                  marginVertical: 6,
+                }}
+              >
+                ÉQUIPES
+              </Text>
+              <ImageBackground
+                source={require(articleImg)}
+                style={{ height: 160 }}
+              ></ImageBackground>
             </Pressable>
           </View>
+          <Separator />
+          <View
+            style={{
+              position: "relative",
+              borderWidth: 1,
+              backgroundColor: "lightgray",
+            }}
+          >
+            <Pressable onPress={() => router.push("/saison")}>
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: 48,
+                  padding: 8,
+                  fontWeight: "800",
+                  marginVertical: 6,
+                }}
+              >
+                SAISONS
+              </Text>
+              <ImageBackground
+                source={require(articleImg)}
+                style={{ height: 160 }}
+              ></ImageBackground>
+            </Pressable>
+          </View>
+          <Separator />
         </SafeAreaView>
       </SafeAreaProvider>
     </ScrollView>
@@ -121,7 +148,12 @@ const styles = StyleSheet.create({
   separator: {
     marginVertical: 8,
   },
-  container: {},
+  mainPlayer: {
+    height: 180,
+    width: 180,
+    marginHorizontal: "auto",
+    marginTop: 16,
+  },
   titleContainer: {
     display: "flex",
     flexDirection: "column",
@@ -141,8 +173,7 @@ const styles = StyleSheet.create({
     width: 20,
     position: "absolute",
     right: 10,
-    bottom: 8,
+    bottom: -150,
     backgroundColor: "lightblue",
-    padding: 8,
   },
 });
