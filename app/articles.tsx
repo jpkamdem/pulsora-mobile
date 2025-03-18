@@ -24,30 +24,26 @@ export default function Articles() {
   }, []);
 
   return (
-    <>
-      <ScrollView>
+      <ScrollView style={{ padding: 16 }}>
         <SafeAreaProvider>
           <SafeAreaView>
-            <ScrollView style={{ padding: 16 }}>
-              <Navbar />
-              <FlatList
-                data={articles}
-                renderItem={(article) => (
-                  <View style={styles.container}>
-                    <View key={article.item.id} style={[styles.articleCard]}>
-                      <Text style={styles.sectionTitle}>
-                        {article.item.title}{" "}
-                      </Text>
-                      <Text>{article.item.content}</Text>
-                    </View>
+            <Navbar />
+            <FlatList
+              data={articles}
+              renderItem={(article) => (
+                <View style={styles.container}>
+                  <View key={article.item.id} style={[styles.articleCard]}>
+                    <Text style={styles.sectionTitle}>
+                      {article.item.title}{" "}
+                    </Text>
+                    <Text>{article.item.content}</Text>
                   </View>
-                )}
-              />
-            </ScrollView>
+                </View>
+              )}
+            />
           </SafeAreaView>
         </SafeAreaProvider>
       </ScrollView>
-    </>
   );
 }
 

@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "expo-router";
 
@@ -18,96 +18,102 @@ export default function Index() {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={{ flexGrow: 1 }}>
-        <Navbar />
-        <View style={{ backgroundColor: "gray" }}>
-          <Text style={{ color: "white", textAlign: "center" }}>
-            Image joueur de foot
-          </Text>
-        </View>
-        <Separator />
-        <View style={styles.titleContainer}>
-          <Text style={styles.mainTitle}>Pulsora</Text>
-          <Text style={styles.subTitle}>Lorem</Text>
-        </View>
-        <Separator />
-        <Pressable
-          style={{
-            padding: 4,
-            backgroundColor: "blue",
-            width: "20%",
-            marginHorizontal: "auto",
-          }}
-        >
-          <Text
-            style={{ color: "white", textAlign: "center", fontWeight: "800" }}
-          >
-            Découvrir
-          </Text>
-        </Pressable>
-        <Separator />
-        <Text style={{ padding: 36 }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          maxime quam quasi sunt nam, minima eius veritatis adipisci! Distinctio
-          quam officia minima, voluptate repellat corporis voluptatum sed autem
-          voluptas laboriosam dolor illo atque nisi illum ut. Iure blanditiis et
-          sit! Rem doloribus fuga sit, eligendi sunt iure distinctio. Magni,
-          harum!
-        </Text>
-        <Separator />
-        <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
-          <Text
+    <ScrollView style={{ flexGrow: 1 }}>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <Navbar />
+          <View style={{ backgroundColor: "gray" }}>
+            <Text style={{ color: "white", textAlign: "center" }}>
+              Image joueur de foot
+            </Text>
+          </View>
+          <Separator />
+          <View style={styles.titleContainer}>
+            <Text style={styles.mainTitle}>Pulsora</Text>
+            <Text style={styles.subTitle}>Lorem</Text>
+          </View>
+          <Separator />
+          <Pressable
             style={{
-              textAlign: "center",
-              fontSize: 32,
-              fontWeight: "800",
-              color: "gray",
-              marginTop: 8,
+              padding: 4,
+              backgroundColor: "blue",
+              width: "20%",
+              marginHorizontal: "auto",
             }}
           >
-            Article
-          </Text>
-          <Pressable onPress={() => router.push("/articles")}>
-            <Image source={require(arrowImg)} style={styles.arrow} />
+            <Text
+              style={{
+                color: "white",
+                textAlign: "center",
+                fontWeight: "800",
+              }}
+            >
+              Découvrir
+            </Text>
           </Pressable>
-        </View>
-        <Separator />
-        <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
-          <Text
-            style={{
-              textAlign: "center",
-              fontSize: 32,
-              fontWeight: "800",
-              color: "gray",
-              marginTop: 8,
-            }}
-          >
-            Saison
+          <Separator />
+          <Text style={{ padding: 36 }}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+            maxime quam quasi sunt nam, minima eius veritatis adipisci!
+            Distinctio quam officia minima, voluptate repellat corporis
+            voluptatum sed autem voluptas laboriosam dolor illo atque nisi illum
+            ut. Iure blanditiis et sit! Rem doloribus fuga sit, eligendi sunt
+            iure distinctio. Magni, harum!
           </Text>
-          <Pressable onPress={() => router.push("/saison")}>
-            <Image source={require(arrowImg)} style={styles.arrow} />
-          </Pressable>
-        </View>
-        <Separator />
-        <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
-          <Text
-            style={{
-              textAlign: "center",
-              fontSize: 32,
-              fontWeight: "800",
-              color: "gray",
-              marginTop: 8,
-            }}
-          >
-            Équipes
-          </Text>
-          <Pressable onPress={() => router.push("/equipes")}>
-            <Image source={require(arrowImg)} style={styles.arrow} />
-          </Pressable>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+          <Separator />
+          <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 32,
+                fontWeight: "800",
+                color: "gray",
+                marginTop: 8,
+              }}
+            >
+              Article
+            </Text>
+            <Pressable onPress={() => router.push("/articles")}>
+              <Image source={require(arrowImg)} style={styles.arrow} />
+            </Pressable>
+          </View>
+          <Separator />
+          <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 32,
+                fontWeight: "800",
+                color: "gray",
+                marginTop: 8,
+              }}
+            >
+              Saison
+            </Text>
+            <Pressable onPress={() => router.push("/saison")}>
+              <Image source={require(arrowImg)} style={styles.arrow} />
+            </Pressable>
+          </View>
+          <Separator />
+          <View style={{ position: "relative", borderWidth: 1, height: 160 }}>
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 32,
+                fontWeight: "800",
+                color: "gray",
+                marginTop: 8,
+              }}
+            >
+              Équipes
+            </Text>
+            <Pressable onPress={() => router.push("/equipes")}>
+              <Image source={require(arrowImg)} style={styles.arrow} />
+            </Pressable>
+          </View>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </ScrollView>
   );
 }
 
