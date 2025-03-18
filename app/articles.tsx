@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
-import { useEffect } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
-import articles from "../assets/articles.json";
+import { Text, View, StyleSheet, ScrollView, FlatList } from "react-native";
+import jsonArticles from "../assets/articles.json";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { useEffect, useState } from "react";
 
 const Separator = () => <View style={styles.separator} />;
 
@@ -12,50 +13,39 @@ type ArticleType = {
 };
 
 export default function Articles() {
+  const [articles, setArticles] = useState<ArticleType[]>([]);
 
-  const getArticlesByGroup = (minId: number, maxId: number) => {
-    return articles.filter((article: ArticleType) => article.id >= minId && article.id <= maxId);
-  };
-
- 
   useEffect(() => {
-    console.log(typeof articles);
-    console.log(articles);
+    async function get() {
+      setArticles(jsonArticles);
+    }
+
+    get();
   }, []);
 
   return (
     <>
-      <Navbar />
-      <ScrollView style={{ padding: 16 }}>
-      <View style={styles.contenair}>
-        <Text style={styles.sectionTitle}>Nutrition</Text>
-        <Text style={styles.sectionSubtitle}>Petits Conseils Nutrition</Text>
-
-        {getArticlesByGroup(0, 1).map((article) => (
-          <View key={article.id} style={styles.articleCard}>
-            <Text style={styles.articleTitle}>{article.title}</Text>
-            <Text>{article.content}</Text>
-          </View>
-        ))}
-      </View>
-
-        <Separator />
-
-        <View style={styles.contenair}>
-        <Text style={styles.sectionTitle}>Équipement</Text>
-        <Text style={styles.sectionText}>
-          Les équipements de football sont essentiels pour assurer la sécurité, la
-          performance et le confort des joueurs tout au long du match. Chaque
-          élément est conçu pour répondre aux besoins spécifiques du jeu et des
-          conditions de terrain.
-        </Text>
-        {getArticlesByGroup(2, 6).map((article) => (
-          <View key={article.id} style={styles.articleCard}>
-            <Text style={styles.articleTitle}>{article.title}</Text>
-            <Text>{article.content}</Text>
-          </View>
-        ))}
-        </View>
+      <ScrollView>
+        <SafeAreaProvider>
+          <SafeAreaView>
+            <ScrollView style={{ padding: 16 }}>
+              <Navbar />
+              <FlatList
+                data={articles}
+                renderItem={(article) => (
+                  <View style={styles.container}>
+                    <View key={article.item.id} style={[styles.articleCard]}>
+                      <Text style={styles.sectionTitle}>
+                        {article.item.title}{" "}
+                      </Text>
+                      <Text>{article.item.content}</Text>
+                    </View>
+                  </View>
+                )}
+              />
+            </ScrollView>
+          </SafeAreaView>
+        </SafeAreaProvider>
       </ScrollView>
     </>
   );
@@ -65,17 +55,18 @@ const styles = StyleSheet.create({
   separator: {
     marginVertical: 16,
   },
-  contenair:{
-    alignItems: "center"
+  container: {
+    width: 360,
+    margin: "auto",
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 8,
   },
   sectionSubtitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
     marginBottom: 16,
   },
   sectionText: {
@@ -85,16 +76,16 @@ const styles = StyleSheet.create({
     textAlign: "justify",
   },
   articleCard: {
-    marginBottom: 15,
-    padding: 15,
+    padding: 16,
+    margin: 12,
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: '#ccc',
-    backgroundColor: '#f9f9f9',
+    borderColor: "#ccc",
+    backgroundColor: "#f9f9f9",
   },
   articleTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 8,
     textAlign: "center",
   },

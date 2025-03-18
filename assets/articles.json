@@ -1,38 +1,37 @@
 [
   {
-    "id": 0,
-    "title": "Que manger avant un match ?",
-    "content" : "Contenu de mon article 1"
-  },
-  {
     "id": 1,
-    "title": "Que manger après un match ?",
-    "content" : "Contenu de mon article 2"
+    "title": "Que manger avant un match ?",
+    "content" : "Avant un match de foot, il est essentiel de privilégier un repas riche en glucides complexes (pâtes, riz complet, quinoa) pour fournir une énergie durable, accompagné d’une source de protéines maigres (poulet, poisson) pour soutenir les muscles. Il faut aussi bien s’hydrater et éviter les aliments trop gras ou difficiles à digérer. Un en-cas comme une banane ou une barre énergétique peut être consommé 30 à 60 minutes avant le match."
   },
   {
     "id": 2,
-    "title": "Le maillot",
-    "content" : "Contenu de mon article 2"
+    "title": "Que manger après un match ?",
+    "content" : "Après un match, l’objectif est de récupérer rapidement. Il faut reconstituer les réserves de glycogène avec des glucides (patate douce, pain complet) et réparer les muscles avec des protéines (œufs, yaourt, viande maigre). L’hydratation reste primordiale, et une boisson riche en électrolytes peut aider à compenser les pertes dues à la transpiration."
   },
   {
     "id": 3,
-    "title": "Le short",
-    "content" : "Contenu de mon article 2"
+    "title": "L'importance de l’hydratation pour un footballeur",
+    "content" : "L’hydratation est essentielle pour maintenir la performance et éviter la fatigue musculaire. Avant un match, il est recommandé de boire régulièrement de l’eau tout au long de la journée. Pendant l’effort, une hydratation toutes les 15 à 20 minutes est idéale, en privilégiant une boisson isotonique si l’intensité est élevée. Après le match, il faut compenser les pertes en eau et en sels minéraux avec de l’eau, des jus naturels ou des boissons riches en électrolytes."
   },
   {
     "id": 4,
-    "title": "Les chaussettes",
-    "content" : "Contenu de mon article 2"
+    "title": "Que manger la veille d’un match de foot ?",
+    "content" : "Le repas de la veille doit être équilibré et riche en glucides pour optimiser les réserves d’énergie. Des pâtes complètes, du riz ou des pommes de terre avec une source de protéines maigres (volaille, poisson) sont recommandés. Il faut aussi inclure des légumes pour les vitamines et minéraux. Évitez les plats trop gras ou épicés, qui peuvent perturber la digestion. Une bonne hydratation est également essentielle avant le jour du match."
   },
   {
     "id": 5,
-    "title": "Les chaussures",
-    "content" : "Contenu de mon article 2"
+    "title": "Les meilleurs exercices d’échauffement avant un match",
+    "content" : "Un bon échauffement permet d’éviter les blessures et d’optimiser la performance. Il doit commencer par un léger footing de 5 à 10 minutes pour activer le système cardiovasculaire, suivi d’exercices de mobilité articulaire (cercles de chevilles, hanches, épaules). Ensuite, des exercices de renforcement (fentes, squats) et des étirements dynamiques (talons-fesses, montées de genoux) préparent les muscles à l’effort. Terminez avec des sprints progressifs et des passes avec ballon pour être prêt à jouer."
   },
   {
     "id": 6,
-    "title": "Le ballon",
-    "content" : "Contenu de mon article 2"
+    "title": "Comment bien récupérer après un match ?",
+    "content" : "La récupération commence dès le coup de sifflet final avec des étirements doux et une bonne hydratation. Prendre une collation riche en protéines et en glucides (shake protéiné, yaourt avec céréales) aide à la reconstruction musculaire. Une douche froide peut réduire les courbatures, et un bon sommeil est essentiel pour la récupération complète. Enfin, une séance de massage ou de rouleau de massage peut détendre les muscles et améliorer la circulation sanguine."
+  },
+  {
+    "id": 7,
+    "title": "Comment éviter les blessures en jouant au foot ?",
+    "content" : "Pour prévenir les blessures, il est crucial de bien s’échauffer avant l’effort et de ne pas négliger les étirements après l’entraînement. Renforcer les muscles stabilisateurs (gainage, proprioception) réduit les risques d’entorses. Le choix des chaussures adaptées au terrain et une bonne hydratation limitent également les tensions musculaires. Enfin, écouter son corps et ne pas forcer en cas de douleur permet d’éviter des blessures plus graves."
   }
-  
 ]
