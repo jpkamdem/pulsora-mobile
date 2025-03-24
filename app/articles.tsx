@@ -28,6 +28,8 @@ export default function Articles() {
         <SafeAreaProvider>
           <SafeAreaView>
             <Navbar />
+            <Text style={styles.sectionTheme}>NUTRITION</Text>
+            <Text style={styles.sectionSubtitle}>Quelques petits conseils à suivre</Text>
             <FlatList
               data={articles}
               renderItem={(article) => (
@@ -36,7 +38,7 @@ export default function Articles() {
                     <Text style={styles.sectionTitle}>
                       {article.item.title}{" "}
                     </Text>
-                    <Text>{article.item.content}</Text>
+                    <Text style={styles.sectionText}>{article.item.content}</Text>
                   </View>
                 </View>
               )}
@@ -55,29 +57,46 @@ const styles = StyleSheet.create({
     width: 360,
     margin: "auto",
   },
+
+  sectionTheme: {
+    fontSize: 28,
+    color: "#1E4B9B",
+    textAlign: "center",
+    letterSpacing: 2,
+    fontWeight: "bold",
+  },
   sectionTitle: {
     fontSize: 24,
+    color:"#5CB5FE",
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 16,
+    textAlign: "center",
+    borderColor: "#DAEEFF",
+    backgroundColor: "#DAEEFF",
+    borderWidth: 3,
+    borderRadius: 10,
+
   },
   sectionSubtitle: {
     fontSize: 18,
     fontWeight: "600",
     marginBottom: 16,
+    textAlign: "center",
+    color: "#152B56",
   },
   sectionText: {
     fontSize: 16,
     marginBottom: 16,
     lineHeight: 22,
     textAlign: "justify",
+    borderColor: "#DAEEFF",
+    borderWidth: 3,
+    borderRadius: 10,
+    backgroundColor: "#DAEEFF",
   },
   articleCard: {
     padding: 16,
     margin: 12,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: "#ccc",
-    backgroundColor: "#f9f9f9",
   },
   articleTitle: {
     fontSize: 18,
