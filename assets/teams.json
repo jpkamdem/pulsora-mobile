@@ -1,5 +1,137 @@
 [
   {
-    "name": "Bastard Munchen"
+    "id": 1,
+    "name": "Bastard Munchen",
+    "players": [
+      {
+        "id": 1,
+        "firstname": "Yoichi",
+        "lastname": "Isagi",
+        "position": "FW",
+        "number": 11
+      },
+      {
+        "id": 2,
+        "firstname": "Micheal",
+        "lastname": "Kaiser",
+        "position": "FW",
+        "number": 9
+      },
+      {
+        "id": 3,
+        "firstname": "Yo",
+        "lastname": "Hiori",
+        "position": "MF",
+        "number": 8
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Manshine City",
+    "players": [
+      {
+        "id": 4,
+        "firstname": "Reo",
+        "lastname": "Mikage",
+        "position": "MF",
+        "number": 8
+      },
+      {
+        "id": 5,
+        "firstname": "Seishirou",
+        "lastname": "Nagi",
+        "position": "FW",
+        "number": 13
+      },
+      {
+        "id": 6,
+        "firstname": "Hyouma",
+        "lastname": "Chigiri",
+        "position": "FW",
+        "number": 12
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "FC Barcha",
+    "players": [
+      {
+        "id": 7,
+        "firstname": "Otoya",
+        "lastname": "Eita",
+        "position": "FW",
+        "number": 11
+      },
+      {
+        "id": 8,
+        "firstname": "Meguru",
+        "lastname": "Bachira",
+        "position": "FW",
+        "number": 13
+      },
+      {
+        "id": 9,
+        "firstname": "Lavinho",
+        "lastname": "",
+        "position": "FW",
+        "number": 10
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Ubers",
+    "players": [
+      {
+        "id": 10,
+        "firstname": "shouei",
+        "lastname": "Barou",
+        "position": "FW",
+        "number": 9
+      },
+      {
+        "id": 11,
+        "firstname": "Oliver",
+        "lastname": "Aiku",
+        "position": "DEF",
+        "number": 4
+      },
+      {
+        "id": 12,
+        "firstname": "Snuffy",
+        "lastname": "",
+        "position": "MF",
+        "number": 8
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "FC Barcha",
+    "players": [
+      {
+        "id": 13,
+        "firstname": "Ryusui",
+        "lastname": "Shidou",
+        "position": "FW",
+        "number": 9
+      },
+      {
+        "id": 14,
+        "firstname": "Rin",
+        "lastname": "Itoshi",
+        "position": "FW",
+        "number": 10
+      },
+      {
+        "id": 15,
+        "firstname": "Julian",
+        "lastname": "Loki",
+        "position": "FW",
+        "number": 11
+      }
+    ]
   }
 ]
