@@ -15,7 +15,7 @@ const Separator = () => <View style={styles.separator} />;
 
 export default function Index() {
   const arrowImg = "../assets/images/arrow.png";
-  const mainPlayerImg = "../assets/images/main-player.png";
+  const mainPlayerImg = "../assets/images/playy.png";
   const articleImg = "../assets/images/articles.jpg";
 
   const router = useRouter();

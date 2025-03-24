@@ -118,8 +118,8 @@ const styles = StyleSheet.create({
     zIndex: 109
   },
   burgerLine: {
-    width: 30,
-    height: 4,
+    width: 28,
+    height: 3,
     backgroundColor: "black",
     zIndex: 110
   },
@@ -130,13 +130,14 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     overflow: "hidden",
-    zIndex: 1,
+    zIndex: 10,
     borderTopWidth: 1,
     borderTopColor: "#ccc",
   },
   menuItem: {
     padding: 15,
+    paddingBottom: 10,
     borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
+    borderBottomColor: "#ccc"
   },
 });

@@ -25,59 +25,37 @@ export default function Equipes() {
   const [teams, setTeams] = useState<Team[]>([]);
 
   function position(pos: string) {
-    if (pos === "GK") {
-      return "Gardien";
-    }
-
-    if (pos === "DEF") {
-      return "Défenseur";
-    }
-
-    if (pos === "MF") {
-      return "Milieu";
-    }
-
-    if (pos === "FW") {
-      return "Attaquant";
-    }
-
-    return "erreur";
+    const positions: { [key: string]: string } = {
+      GK: "Gardien",
+      DEF: "Défenseur",
+      MF: "Milieu",
+      FW: "Attaquant",
+    };
+    return positions[pos] || "Erreur";
   }
 
   useEffect(() => {
-    async function get() {
-      setTeams(teamJson);
-    }
-
-    get();
+    setTeams(teamJson);
   }, []);
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView>
+      <SafeAreaView style={styles.safeArea}>
+        <Navbar />
+        <Text style={styles.header}>Liste des équipes</Text>
+        <Separator />
         <FlatList
-          nestedScrollEnabled={true}
-          keyExtractor={(team) => team.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
           data={teams}
-          ListHeaderComponent={
-            <View>
-              <Navbar />
-              <Text style={styles.header}>Liste des équipes</Text>
-              <Separator />
-            </View>
-          }
-          renderItem={(team) => (
-            <View key={team.index} style={styles.container}>
-              <Text style={styles.teamName}>{team.item.name}</Text>
-              <View>
-                {team.item.players.map((player) => (
+          renderItem={({ item }) => (
+            <View style={styles.teamContainer}>
+              <Text style={styles.teamName}>{item.name}</Text>
+              <View style={styles.playersList}>
+                {item.players.map((player) => (
                   <View key={player.id} style={styles.playerContainer}>
                     <Text>
-                      <Text style={{ fontWeight: "900" }}>{player.number}</Text>{" "}
-                      - {player.firstname} {player.lastname},{" "}
-                      <Text style={{ textDecorationLine: "underline" }}>
-                        {position(player.position)}
-                      </Text>
+                      <Text style={styles.playerNumber}>{player.number}</Text> - {player.firstname} {player.lastname},{" "}
+                      <Text style={styles.playerPosition}>{position(player.position)}</Text>
                     </Text>
                   </View>
                 ))}
@@ -91,29 +69,59 @@ export default function Equipes() {
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#f4f4f4",
+  },
   separator: {
-    marginVertical: 16,
+    height: 1,
+    backgroundColor: "#ccc",
+    marginVertical: 10,
   },
   header: {
     textAlign: "center",
-    fontSize: 30,
-    fontWeight: "700",
-    paddingVertical: 24,
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#333",
+    paddingVertical: 20,
   },
-  container: {
-    width: 240,
-    margin: "auto",
-    display: "flex",
-    marginBottom: 24,
+  teamContainer: {
+    alignSelf: "center",
+    width: "90%",
+    backgroundColor: "#ffffff",
+    padding: 15,
+    marginBottom: 15,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
   teamName: {
-    backgroundColor: "lightblue",
-    padding: 4,
-    fontWeight: "900",
+    backgroundColor: "#3498db",
+    color: "white",
+    padding: 10,
     fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+    borderRadius: 5,
+  },
+  playersList: {
+    marginTop: 10,
   },
   playerContainer: {
-    padding: 4,
-    backgroundColor: "#f7f7f7",
+    padding: 8,
+    backgroundColor: "#ecf0f1",
+    borderRadius: 5,
+    marginVertical: 5,
+  },
+  playerNumber: {
+    fontWeight: "bold",
+    color: "#2c3e50",
+  },
+  playerPosition: {
+    textDecorationLine: "underline",
+    fontStyle: "italic",
+    color: "blue",
   },
 });
