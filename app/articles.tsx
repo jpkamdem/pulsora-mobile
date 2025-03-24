@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { Text, View, StyleSheet, ScrollView, FlatList } from "react-native";
 import jsonArticles from "../assets/articles.json";
+import jsonExercices from "../assets/articlesExercice.json";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useEffect, useState } from "react";
 
@@ -14,10 +15,19 @@ type ArticleType = {
 
 export default function Articles() {
   const [articles, setArticles] = useState<ArticleType[]>([]);
+  const [exercices, setExercices] = useState<ArticleType[]>([]);
 
   useEffect(() => {
     async function get() {
       setArticles(jsonArticles);
+    }
+
+    get();
+  }, []);
+
+  useEffect (() => {
+    async function get() {
+      setExercices(jsonExercices);
     }
 
     get();
@@ -32,6 +42,22 @@ export default function Articles() {
             <Text style={styles.sectionSubtitle}>Quelques petits conseils à suivre</Text>
             <FlatList
               data={articles}
+              renderItem={(article) => (
+                <View style={styles.container}>
+                  <View key={article.item.id} style={[styles.articleCard]}>
+                    <Text style={styles.sectionTitle}>
+                      {article.item.title}{" "}
+                    </Text>
+                    <Text style={styles.sectionText}>{article.item.content}</Text>
+                  </View>
+                </View>
+              )}
+            />
+            <Separator/>
+            <Text style={styles.sectionTheme}>EXERCICES</Text>
+            <Text style={styles.sectionSubtitle}>La préparation ne se fait pas uniquement sur le terrain</Text>
+            <FlatList
+              data={exercices}
               renderItem={(article) => (
                 <View style={styles.container}>
                   <View key={article.item.id} style={[styles.articleCard]}>
