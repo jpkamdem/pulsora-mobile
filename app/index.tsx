@@ -29,35 +29,17 @@ export default function Index() {
           <Separator />
           <View style={styles.titleContainer}>
             <Text style={styles.mainTitle}>Pulsora</Text>
-            <Text style={styles.subTitle}>Lorem</Text>
+            <Text style={styles.subTitle}>Bienvenue</Text>
           </View>
           <Separator />
-          <Pressable
-            style={{
-              padding: 4,
-              backgroundColor: "blue",
-              width: "20%",
-              marginHorizontal: "auto",
-            }}
-          >
-            <Text
-              style={{
-                color: "white",
-                textAlign: "center",
-                fontWeight: "800",
-              }}
-            >
-              Découvrir
-            </Text>
-          </Pressable>
-          <Separator />
           <Text style={{ padding: 36 }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-            maxime quam quasi sunt nam, minima eius veritatis adipisci!
-            Distinctio quam officia minima, voluptate repellat corporis
-            voluptatum sed autem voluptas laboriosam dolor illo atque nisi illum
-            ut. Iure blanditiis et sit! Rem doloribus fuga sit, eligendi sunt
-            iure distinctio. Magni, harum!
+            Pulsora est un projet d’application web gratuite dédiée à la gestion
+            des équipes sportives. Conçue pour les entraîneurs, les joueurs et
+            les responsables de clubs, cet outil facilite l'organisation et la
+            communication au sein des équipes. Elle permet aux fans de vos
+            projets sportifs de suivre votre actualité, l’actualité des joueurs
+            (blessures, sanctions...) qu’elle soit sportive ou extra-sportive au
+            travers d’articles publiées par vos soins.
           </Text>
           <Separator />
           <View
@@ -129,7 +111,7 @@ export default function Index() {
                   marginVertical: 6,
                 }}
               >
-                SAISONS
+                SAISON
               </Text>
               <ImageBackground
                 source={require(articleImg)}

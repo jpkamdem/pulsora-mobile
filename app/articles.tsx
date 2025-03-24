@@ -1,78 +1,46 @@
 import Navbar from "@/components/Navbar";
-import { Text, View, StyleSheet, ScrollView, FlatList } from "react-native";
+import { Text, View, StyleSheet, FlatList, SectionList } from "react-native";
 import jsonArticles from "../assets/articles.json";
-import jsonExercices from "../assets/articlesExercice.json";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useEffect, useState } from "react";
 
-const Separator = () => <View style={styles.separator} />;
-
-type ArticleType = {
-  id: number;
+type Section = {
   title: string;
-  content: string;
+  subtitle: string;
+  data: { id: number; title: string; content: string }[];
 };
 
+const Separator = () => <View style={styles.separator} />;
+
 export default function Articles() {
-  const [articles, setArticles] = useState<ArticleType[]>([]);
-  const [exercices, setExercices] = useState<ArticleType[]>([]);
-
+  const [sections, setSections] = useState<Section[]>([]);
   useEffect(() => {
-    async function get() {
-      setArticles(jsonArticles);
-    }
-
-    get();
-  }, []);
-
-  useEffect (() => {
-    async function get() {
-      setExercices(jsonExercices);
-    }
-
-    get();
+    setSections(jsonArticles.sections);
   }, []);
 
   return (
-      <ScrollView style={{ padding: 16 }}>
-        <SafeAreaProvider>
-          <SafeAreaView>
-            <Navbar />
-            <Text style={styles.sectionTheme}>NUTRITION</Text>
-            <Text style={styles.sectionSubtitle}>Quelques petits conseils à suivre</Text>
-            <FlatList
-              data={articles}
-              renderItem={(article) => (
-                <View style={styles.container}>
-                  <View key={article.item.id} style={[styles.articleCard]}>
-                    <Text style={styles.sectionTitle}>
-                      {article.item.title}{" "}
-                    </Text>
-                    <Text style={styles.sectionText}>{article.item.content}</Text>
-                  </View>
-                </View>
-              )}
-            />
-            <Separator/>
-            <Text style={styles.sectionTheme}>EXERCICES</Text>
-            <Text style={styles.sectionSubtitle}>La préparation ne se fait pas uniquement sur le terrain</Text>
-            <FlatList
-              data={exercices}
-              renderItem={(article) => (
-                <View style={styles.container}>
-                  <View key={article.item.id} style={[styles.articleCard]}>
-                    <Text style={styles.sectionTitle}>
-                      {article.item.title}{" "}
-                    </Text>
-                    <Text style={styles.sectionText}>{article.item.content}</Text>
-                  </View>
-                </View>
-              )}
-              nestedScrollEnabled={true}
-            />
-          </SafeAreaView>
-        </SafeAreaProvider>
-      </ScrollView>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <SectionList
+          nestedScrollEnabled={true}
+          sections={sections}
+          keyExtractor={(item) => item.id.toString()}
+          ListHeaderComponent={
+            <>
+              <Navbar />
+            </>
+          }
+          renderItem={(item) => (
+            <View style={styles.container} key={item.index}>
+              <View style={styles.articleCard}>
+                <Text style={styles.sectionTitle}>{item.item.title}</Text>
+                <Text style={styles.sectionText}>{item.item.content}</Text>
+              </View>
+            </View>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
@@ -94,7 +62,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    color:"#5CB5FE",
+    color: "#5CB5FE",
     fontWeight: "bold",
     marginBottom: 16,
     textAlign: "center",
@@ -102,7 +70,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#DAEEFF",
     borderWidth: 3,
     borderRadius: 10,
-
   },
   sectionSubtitle: {
     fontSize: 18,

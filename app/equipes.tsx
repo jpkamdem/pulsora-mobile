@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import teamJson from "../assets/teams.json";
 import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
@@ -53,46 +53,52 @@ export default function Equipes() {
   }, []);
 
   return (
-    <>
-      <ScrollView style={{ padding: 16 }}>
-        <SafeAreaProvider>
-          <SafeAreaView>
-            <Navbar />
-            <Separator />
-            <FlatList
-              data={teams}
-              renderItem={(team) => (
-                <View key={team.index} style={styles.container}>
-                  <Text style={styles.teamName}>{team.item.name}</Text>
-                  <View>
-                    {team.item.players.map((player) => (
-                      <View key={player.id} style={styles.playerContainer}>
-                        <Text>
-                          <Text style={{ fontWeight: "900" }}>
-                            {player.number}
-                          </Text>{" "}
-                          - {player.firstname} {player.lastname},{" "}
-                          <Text style={{ textDecorationLine: "underline" }}>
-                            {position(player.position)}
-                          </Text>
-                        </Text>
-                      </View>
-                    ))}
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <FlatList
+          nestedScrollEnabled={true}
+          keyExtractor={(team) => team.id.toString()}
+          data={teams}
+          ListHeaderComponent={
+            <View>
+              <Navbar />
+              <Text style={styles.header}>Liste des équipes</Text>
+              <Separator />
+            </View>
+          }
+          renderItem={(team) => (
+            <View key={team.index} style={styles.container}>
+              <Text style={styles.teamName}>{team.item.name}</Text>
+              <View>
+                {team.item.players.map((player) => (
+                  <View key={player.id} style={styles.playerContainer}>
+                    <Text>
+                      <Text style={{ fontWeight: "900" }}>{player.number}</Text>{" "}
+                      - {player.firstname} {player.lastname},{" "}
+                      <Text style={{ textDecorationLine: "underline" }}>
+                        {position(player.position)}
+                      </Text>
+                    </Text>
                   </View>
-                </View>
-              )}
-              nestedScrollEnabled={true}
-            />
-          </SafeAreaView>
-        </SafeAreaProvider>
-      </ScrollView>
-    </>
+                ))}
+              </View>
+            </View>
+          )}
+        />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   separator: {
     marginVertical: 16,
+  },
+  header: {
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "700",
+    paddingVertical: 24,
   },
   container: {
     width: 240,

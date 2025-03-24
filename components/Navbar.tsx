@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { useRouter, usePathname } from "expo-router";
 import { useState } from "react";
 import {
   Animated,
@@ -38,13 +38,30 @@ export default function Navbar() {
     setMenuIsOpen(!menuIsOpen);
   }
 
+  const pathName = usePathname();
+
+  function getTitle() {
+    switch (pathName) {
+      case "/":
+        return "Accueil";
+      case "/articles":
+        return "Articles";
+      case "/equipes":
+        return "Équipes";
+      case "/saison":
+        return "Saison";
+      default:
+        return "Page";
+    }
+  }
+
   return (
     <>
       <View style={styles.navbar}>
         <Pressable style={styles.image} onPress={() => router.push("/")}>
           <Image source={require(image)} style={styles.image} />
         </Pressable>
-        <Text>Accueil</Text>
+        <Text>{getTitle()}</Text>
         <TouchableOpacity onPress={toggleMenu}>
           <View style={styles.burgerIcon}>
             <View style={styles.burgerLine}></View>
@@ -97,11 +114,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "column",
+    position: "relative",
+    zIndex: 109
   },
   burgerLine: {
     width: 30,
     height: 4,
     backgroundColor: "black",
+    zIndex: 110
   },
   menu: {
     backgroundColor: "#fff",
