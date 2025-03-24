@@ -72,13 +72,16 @@ export default function Equipes() {
                             {player.number}
                           </Text>{" "}
                           - {player.firstname} {player.lastname},{" "}
-                          <Text style={{textDecorationLine: "underline"}}>{position(player.position)}</Text>
+                          <Text style={{ textDecorationLine: "underline" }}>
+                            {position(player.position)}
+                          </Text>
                         </Text>
                       </View>
                     ))}
                   </View>
                 </View>
               )}
+              nestedScrollEnabled={true}
             />
           </SafeAreaView>
         </SafeAreaProvider>

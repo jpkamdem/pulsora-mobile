@@ -1,8 +1,56 @@
 [
   {
     "homeTeam": 1,
+    "awayTeam": 2,
+    "homeScore": 3,
+    "awayScore": 1
+  },
+  {
+    "homeTeam": 1,
     "awayTeam": 3,
     "homeScore": 4,
     "awayScore": 2
+  },
+  {
+    "homeTeam": 1,
+    "awayTeam": 4,
+    "homeScore": 5,
+    "awayScore": 3
+  },
+  {
+    "homeTeam": 2,
+    "awayTeam": 3,
+    "homeScore": 2,
+    "awayScore": 4
+  },
+  {
+    "homeTeam": 2,
+    "awayTeam": 4,
+    "homeScore": 1,
+    "awayScore": 5
+  },
+  {
+    "homeTeam": 2,
+    "awayTeam": 5,
+    "homeScore": 3,
+    "awayScore": 2
+  },
+  {
+    "homeTeam": 3,
+    "awayTeam": 4,
+    "homeScore": 5,
+    "awayScore": 1
+  },
+  {
+    "homeTeam": 3,
+    "awayTeam": 5,
+    "homeScore": 4,
+    "awayScore": 2
+  },
+  {
+    "homeTeam": 4,
+    "awayTeam": 5,
+    "homeScore": 2,
+    "awayScore": 3
   }
 ]

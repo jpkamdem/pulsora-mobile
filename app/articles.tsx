@@ -68,6 +68,7 @@ export default function Articles() {
                   </View>
                 </View>
               )}
+              nestedScrollEnabled={true}
             />
           </SafeAreaView>
         </SafeAreaProvider>
