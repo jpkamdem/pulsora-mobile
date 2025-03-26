@@ -14,9 +14,11 @@ import { useRouter } from "expo-router";
 const Separator = () => <View style={styles.separator} />;
 
 export default function Index() {
+  const firstScreen = "../assets/images/firstScreen.png";
+  const secondScreen = "../assets/images/secondScreen.png";
+  const thirdScreen = "../assets/images/thirdScreen.png";
   const arrowImg = "../assets/images/arrow.png";
   const mainPlayerImg = "../assets/images/playy.png";
-  const articleImg = "../assets/images/articles.jpg";
 
   const router = useRouter();
 
@@ -62,9 +64,10 @@ export default function Index() {
                 ARTICLES
               </Text>
               <ImageBackground
-                source={require(articleImg)}
+                source={require(firstScreen)}
                 style={{ height: 160 }}
               ></ImageBackground>
+              <Image source={require(arrowImg)} style={styles.arrow} />
             </Pressable>
           </View>
           <Separator />
@@ -88,9 +91,10 @@ export default function Index() {
                 ÉQUIPES
               </Text>
               <ImageBackground
-                source={require(articleImg)}
+                source={require(thirdScreen)}
                 style={{ height: 160 }}
               ></ImageBackground>
+              <Image source={require(arrowImg)} style={styles.arrow} />
             </Pressable>
           </View>
           <Separator />
@@ -114,9 +118,10 @@ export default function Index() {
                 SAISON
               </Text>
               <ImageBackground
-                source={require(articleImg)}
+                source={require(secondScreen)}
                 style={{ height: 160 }}
               ></ImageBackground>
+              <Image source={require(arrowImg)} style={styles.arrow} />
             </Pressable>
           </View>
           <Separator />
@@ -154,8 +159,10 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
     position: "absolute",
+    bottom: 10,
     right: 10,
-    bottom: -150,
     backgroundColor: "lightblue",
+    padding: 10,
+    borderRadius: 4,
   },
 });

@@ -31,12 +31,14 @@ export default function Articles() {
             </>
           }
           renderItem={(item) => (
-            <View style={styles.container} key={item.index}>
-              <View style={styles.articleCard}>
-                <Text style={styles.sectionTitle}>{item.item.title}</Text>
-                <Text style={styles.sectionText}>{item.item.content}</Text>
+            <>
+              <View style={styles.container} key={item.index}>
+                <View style={styles.articleCard}>
+                  <Text style={styles.sectionTitle}>{item.item.title}</Text>
+                  <Text style={styles.sectionText}>{item.item.content}</Text>
+                </View>
               </View>
-            </View>
+            </>
           )}
         />
       </SafeAreaView>
@@ -87,10 +89,11 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 10,
     backgroundColor: "#DAEEFF",
+    padding: 16,
   },
   articleCard: {
     padding: 16,
-    margin: 12,
+    marginHorizontal: "auto",
   },
   articleTitle: {
     fontSize: 18,
